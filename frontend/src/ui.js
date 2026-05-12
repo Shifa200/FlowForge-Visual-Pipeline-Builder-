@@ -15,7 +15,7 @@ import { APINode } from './nodes/apiNode';
 import { RandomNode } from './nodes/randomNode';
 import { DelayNode } from './nodes/delayNode';
 import { MathNode } from './nodes/mathNode';
-
+import { SubmitButton } from './submit';
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;
@@ -100,7 +100,7 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} style={{width: '100vw', height: '70vh'}}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -120,6 +120,8 @@ export const PipelineUI = () => {
                 <MiniMap />
             </ReactFlow>
         </div>
+       <SubmitButton nodes={nodes} edges={edges} />
+
         </>
     )
 }
