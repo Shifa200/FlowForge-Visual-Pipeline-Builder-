@@ -23,9 +23,10 @@ export const SubmitButton = ({nodes,edges}) => {
         const data = await response.json();
 
         alert(`
+            Pipeline Analysis
             Nodes: ${data.num_nodes}
             Edges: ${data.num_edges}
-            Is Dag: ${data.is_dag}
+            Is Dag: ${data.is_dag ?  "Yes ✅" : "No ❌"}
             `);
     } catch (error) {
         console.error(error);
