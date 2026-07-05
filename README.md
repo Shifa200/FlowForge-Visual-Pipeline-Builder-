@@ -1,80 +1,29 @@
 ![Preview](./screenshots/homepage.png)
 
+# Visual Pipeline Builder
 
-# VectorShift Flow Builder
+Drag-and-drop workflow automation tool — build node pipelines on a canvas,
+validate the graph structure on the backend, and get instant DAG feedback.
 
-A visual pipeline builder built with React and React Flow as part of the VectorShift Frontend Technical Assessment.
+**🔗 Live demo:** https://vectorshift-flow-builder.vercel.app
+**⚙️ Backend:** FastAPI on Render *(free tier — first request may take ~30s to wake)*
 
-## 🚀 Live Demo
 
-https://vectorshift-flow-builder.vercel.app/
+## Highlights
+- **BaseNode abstraction** — one reusable node component powers every node type
+  (Input, Output, API, Math, Filter, Delay, LLM…); adding a new node type takes
+  a config object, not new component code (~70% less per-node code)
+- **Smart Text node** — auto-resizes with input and live-parses `{{ variable }}`
+  expressions with regex to generate connection handles in real time
+- **DAG validation** — DFS-based cycle detection on the FastAPI backend; submit
+  returns node/edge counts and whether the pipeline is a valid DAG
+- **State management** — Zustand store for nodes/edges, keeping React Flow
+  re-renders minimal
 
----
+## Tech stack
+React · React Flow · Zustand · FastAPI · deployed on Vercel + Render (CORS-configured)
 
-## ✨ Features
-
-### ✅ Reusable Node Abstraction
-Created a reusable `BaseNode` component to reduce duplicated code and make node creation scalable and maintainable.
-
-### ✅ Custom Nodes
-Implemented multiple custom nodes including:
-
-- Input Node
-- Output Node
-- Text Node
-- LLM Node
-- Filter Node
-- Random Node
-- Math Node
-- API Node
-- Delay Node
-
-### ✅ Modern UI Styling
-- Clean responsive layout
-- Centered toolbar
-- Improved spacing and node appearance
-- Better visual consistency
-
-### ✅ Dynamic Pipeline Building
-Users can:
-- Drag and drop nodes
-- Connect nodes visually
-- Create custom workflows
-
-### ✅ Backend Integration
-Integrated frontend with a FastAPI backend.
-
-On submit:
-- Nodes and edges are sent to backend
-- Backend calculates:
-  - Number of nodes
-  - Number of edges
-  - Whether the graph is a DAG (Directed Acyclic Graph)
-
-### ✅ DAG Validation
-Implemented graph cycle detection logic to determine whether the pipeline forms a valid DAG.
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- React
-- React Flow
-- JavaScript
-- Tailwind CSS
-
-### Backend
-- Python
-- FastAPI
-
-### Deployment
-- Vercel
-- Render
-
----
-
-## 📦 Installation
+## Run locally
 
 ### Frontend
 
@@ -91,50 +40,3 @@ cd backend
 uvicorn main:app --reload
 ```
 ---
-
-## 📸 Screenshots
-
-### Flow Builder UI
-
-![Flow Builder](./screenshots/homepage.png)
-
----
-
-### Connected Nodes
-
-![Connected Nodes](./screenshots/nodes.png)
-
----
-
-### DAG Validation
-
-![DAG Validation](./screenshots/dag-validation.png)
-
----
-
-## 🧠 What I Learned
-
-Through this project I learned:
-
-- React component abstraction
-- Reusable architecture design
-- React Flow basics
-- Frontend and backend integration
-- API communication using fetch
-- Basic FastAPI concepts
-- DAG validation logic
-
----
-
-## 💡 Future Improvements
-
-Save/load pipelines
-Export pipeline configurations
-Improved DAG visualization
-Authentication and user projects
-
----
-
-## 📄 License
-
-This project was built for educational and assessment purposes.
